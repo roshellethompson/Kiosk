@@ -1,0 +1,737 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://localhost/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost/">
+      <s:element name="CreateCustomerXML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iScanID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ssn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mobileNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="iLanguageCode" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="WksID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateCustomerXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateCustomerXMLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iScanID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ssn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mobileNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="iLanguageCode" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pWksID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateCustomerResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddCompany">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="objCompany" type="tns:Companies" />
+            <s:element minOccurs="0" maxOccurs="1" name="PAN" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Companies">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="IsNew" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="CompanyNumber" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompanyName" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CreateDate" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="CreateUser" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ModifiedDate" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="ModifiedUser" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="EntityID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Tier" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="BackgroundCheck" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CustomerActivation" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="USorForeignPhotoID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="USPhotoID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Active" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CardID" nillable="true" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="GroupsReference" type="tns:EntityReferenceOfGroups" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityObject" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:StructuralObject">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="EntityKey" type="tns:EntityKey" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="StructuralObject" abstract="true" />
+      <s:complexType name="EntityKey">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="EntitySetName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntityContainerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntityKeyValues" type="tns:ArrayOfEntityKeyMember" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEntityKeyMember">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EntityKeyMember" nillable="true" type="tns:EntityKeyMember" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EntityKeyMember">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EntityReferenceOfGroups">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:EntityReference" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="EntityReference" abstract="true">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RelatedEnd">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="EntityKey" type="tns:EntityKey" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RelatedEnd" abstract="true" />
+      <s:element name="AddCompanyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddCompanyResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCompanyCardNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iCompanyNumber" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="iCardID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="PAN" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCompanyCardNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateCompanyCardNumberResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CompareCustomerData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iScanID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CompareCustomerDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CompareCustomerDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CompareCustomerDataXML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iScanID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CompareCustomerDataXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CompareCustomerDataXMLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ATMLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ATMLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ATMLoginResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CustomerACK">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="photoID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dob" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="iRC" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="RC1" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CustomerACKResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iRC" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="RC1" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="int" type="s:int" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CreateCustomerXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateCustomerXML" />
+  </wsdl:message>
+  <wsdl:message name="CreateCustomerXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateCustomerXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateCustomer" />
+  </wsdl:message>
+  <wsdl:message name="CreateCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddCompanySoapIn">
+    <wsdl:part name="parameters" element="tns:AddCompany" />
+  </wsdl:message>
+  <wsdl:message name="AddCompanySoapOut">
+    <wsdl:part name="parameters" element="tns:AddCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCompanyCardNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCompanyCardNumber" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCompanyCardNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCompanyCardNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="CompareCustomerDataSoapIn">
+    <wsdl:part name="parameters" element="tns:CompareCustomerData" />
+  </wsdl:message>
+  <wsdl:message name="CompareCustomerDataSoapOut">
+    <wsdl:part name="parameters" element="tns:CompareCustomerDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="CompareCustomerDataXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:CompareCustomerDataXML" />
+  </wsdl:message>
+  <wsdl:message name="CompareCustomerDataXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:CompareCustomerDataXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="ATMLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:ATMLogin" />
+  </wsdl:message>
+  <wsdl:message name="ATMLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:ATMLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="CustomerACKSoapIn">
+    <wsdl:part name="parameters" element="tns:CustomerACK" />
+  </wsdl:message>
+  <wsdl:message name="CustomerACKSoapOut">
+    <wsdl:part name="parameters" element="tns:CustomerACKResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateCustomerXMLHttpGetIn">
+    <wsdl:part name="iScanID" type="s:string" />
+    <wsdl:part name="ssn" type="s:string" />
+    <wsdl:part name="mobileNumber" type="s:string" />
+    <wsdl:part name="iLanguageCode" type="s:string" />
+    <wsdl:part name="WksID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateCustomerXMLHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateCustomerHttpGetIn">
+    <wsdl:part name="iScanID" type="s:string" />
+    <wsdl:part name="ssn" type="s:string" />
+    <wsdl:part name="mobileNumber" type="s:string" />
+    <wsdl:part name="iLanguageCode" type="s:string" />
+    <wsdl:part name="pWksID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateCustomerHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCompanyCardNumberHttpGetIn">
+    <wsdl:part name="iCompanyNumber" type="s:string" />
+    <wsdl:part name="iCardID" type="s:string" />
+    <wsdl:part name="PAN" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCompanyCardNumberHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="CompareCustomerDataHttpGetIn">
+    <wsdl:part name="iScanID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CompareCustomerDataHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="CompareCustomerDataXMLHttpGetIn">
+    <wsdl:part name="iScanID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CompareCustomerDataXMLHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ATMLoginHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ATMLoginHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="CreateCustomerXMLHttpPostIn">
+    <wsdl:part name="iScanID" type="s:string" />
+    <wsdl:part name="ssn" type="s:string" />
+    <wsdl:part name="mobileNumber" type="s:string" />
+    <wsdl:part name="iLanguageCode" type="s:string" />
+    <wsdl:part name="WksID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateCustomerXMLHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateCustomerHttpPostIn">
+    <wsdl:part name="iScanID" type="s:string" />
+    <wsdl:part name="ssn" type="s:string" />
+    <wsdl:part name="mobileNumber" type="s:string" />
+    <wsdl:part name="iLanguageCode" type="s:string" />
+    <wsdl:part name="pWksID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateCustomerHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCompanyCardNumberHttpPostIn">
+    <wsdl:part name="iCompanyNumber" type="s:string" />
+    <wsdl:part name="iCardID" type="s:string" />
+    <wsdl:part name="PAN" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCompanyCardNumberHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="CompareCustomerDataHttpPostIn">
+    <wsdl:part name="iScanID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CompareCustomerDataHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="CompareCustomerDataXMLHttpPostIn">
+    <wsdl:part name="iScanID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CompareCustomerDataXMLHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ATMLoginHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ATMLoginHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:portType name="CreateCustomerIDSoap">
+    <wsdl:operation name="CreateCustomerXML">
+      <wsdl:input message="tns:CreateCustomerXMLSoapIn" />
+      <wsdl:output message="tns:CreateCustomerXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCustomer">
+      <wsdl:input message="tns:CreateCustomerSoapIn" />
+      <wsdl:output message="tns:CreateCustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCompany">
+      <wsdl:input message="tns:AddCompanySoapIn" />
+      <wsdl:output message="tns:AddCompanySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCompanyCardNumber">
+      <wsdl:input message="tns:UpdateCompanyCardNumberSoapIn" />
+      <wsdl:output message="tns:UpdateCompanyCardNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CompareCustomerData">
+      <wsdl:input message="tns:CompareCustomerDataSoapIn" />
+      <wsdl:output message="tns:CompareCustomerDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CompareCustomerDataXML">
+      <wsdl:input message="tns:CompareCustomerDataXMLSoapIn" />
+      <wsdl:output message="tns:CompareCustomerDataXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ATMLogin">
+      <wsdl:input message="tns:ATMLoginSoapIn" />
+      <wsdl:output message="tns:ATMLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CustomerACK">
+      <wsdl:input message="tns:CustomerACKSoapIn" />
+      <wsdl:output message="tns:CustomerACKSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CreateCustomerIDHttpGet">
+    <wsdl:operation name="CreateCustomerXML">
+      <wsdl:input message="tns:CreateCustomerXMLHttpGetIn" />
+      <wsdl:output message="tns:CreateCustomerXMLHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCustomer">
+      <wsdl:input message="tns:CreateCustomerHttpGetIn" />
+      <wsdl:output message="tns:CreateCustomerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCompanyCardNumber">
+      <wsdl:input message="tns:UpdateCompanyCardNumberHttpGetIn" />
+      <wsdl:output message="tns:UpdateCompanyCardNumberHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CompareCustomerData">
+      <wsdl:input message="tns:CompareCustomerDataHttpGetIn" />
+      <wsdl:output message="tns:CompareCustomerDataHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CompareCustomerDataXML">
+      <wsdl:input message="tns:CompareCustomerDataXMLHttpGetIn" />
+      <wsdl:output message="tns:CompareCustomerDataXMLHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ATMLogin">
+      <wsdl:input message="tns:ATMLoginHttpGetIn" />
+      <wsdl:output message="tns:ATMLoginHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CreateCustomerIDHttpPost">
+    <wsdl:operation name="CreateCustomerXML">
+      <wsdl:input message="tns:CreateCustomerXMLHttpPostIn" />
+      <wsdl:output message="tns:CreateCustomerXMLHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCustomer">
+      <wsdl:input message="tns:CreateCustomerHttpPostIn" />
+      <wsdl:output message="tns:CreateCustomerHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCompanyCardNumber">
+      <wsdl:input message="tns:UpdateCompanyCardNumberHttpPostIn" />
+      <wsdl:output message="tns:UpdateCompanyCardNumberHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CompareCustomerData">
+      <wsdl:input message="tns:CompareCustomerDataHttpPostIn" />
+      <wsdl:output message="tns:CompareCustomerDataHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CompareCustomerDataXML">
+      <wsdl:input message="tns:CompareCustomerDataXMLHttpPostIn" />
+      <wsdl:output message="tns:CompareCustomerDataXMLHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ATMLogin">
+      <wsdl:input message="tns:ATMLoginHttpPostIn" />
+      <wsdl:output message="tns:ATMLoginHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CreateCustomerIDSoap" type="tns:CreateCustomerIDSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateCustomerXML">
+      <soap:operation soapAction="http://localhost/CreateCustomerXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCustomer">
+      <soap:operation soapAction="http://localhost/CreateCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCompany">
+      <soap:operation soapAction="http://localhost/AddCompany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCompanyCardNumber">
+      <soap:operation soapAction="http://localhost/UpdateCompanyCardNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompareCustomerData">
+      <soap:operation soapAction="http://localhost/CompareCustomerData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompareCustomerDataXML">
+      <soap:operation soapAction="http://localhost/CompareCustomerDataXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ATMLogin">
+      <soap:operation soapAction="http://localhost/ATMLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomerACK">
+      <soap:operation soapAction="http://localhost/CustomerACK" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CreateCustomerIDSoap12" type="tns:CreateCustomerIDSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateCustomerXML">
+      <soap12:operation soapAction="http://localhost/CreateCustomerXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCustomer">
+      <soap12:operation soapAction="http://localhost/CreateCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCompany">
+      <soap12:operation soapAction="http://localhost/AddCompany" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCompanyCardNumber">
+      <soap12:operation soapAction="http://localhost/UpdateCompanyCardNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompareCustomerData">
+      <soap12:operation soapAction="http://localhost/CompareCustomerData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompareCustomerDataXML">
+      <soap12:operation soapAction="http://localhost/CompareCustomerDataXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ATMLogin">
+      <soap12:operation soapAction="http://localhost/ATMLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CustomerACK">
+      <soap12:operation soapAction="http://localhost/CustomerACK" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CreateCustomerIDHttpGet" type="tns:CreateCustomerIDHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="CreateCustomerXML">
+      <http:operation location="/CreateCustomerXML" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCustomer">
+      <http:operation location="/CreateCustomer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCompanyCardNumber">
+      <http:operation location="/UpdateCompanyCardNumber" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompareCustomerData">
+      <http:operation location="/CompareCustomerData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompareCustomerDataXML">
+      <http:operation location="/CompareCustomerDataXML" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ATMLogin">
+      <http:operation location="/ATMLogin" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CreateCustomerIDHttpPost" type="tns:CreateCustomerIDHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="CreateCustomerXML">
+      <http:operation location="/CreateCustomerXML" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCustomer">
+      <http:operation location="/CreateCustomer" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCompanyCardNumber">
+      <http:operation location="/UpdateCompanyCardNumber" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompareCustomerData">
+      <http:operation location="/CompareCustomerData" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompareCustomerDataXML">
+      <http:operation location="/CompareCustomerDataXML" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ATMLogin">
+      <http:operation location="/ATMLogin" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CreateCustomerID">
+    <wsdl:port name="CreateCustomerIDSoap" binding="tns:CreateCustomerIDSoap">
+      <soap:address location="http://localhost/WebCardManagement/CreateCustomerID.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CreateCustomerIDSoap12" binding="tns:CreateCustomerIDSoap12">
+      <soap12:address location="http://localhost/WebCardManagement/CreateCustomerID.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CreateCustomerIDHttpGet" binding="tns:CreateCustomerIDHttpGet">
+      <http:address location="http://localhost/WebCardManagement/CreateCustomerID.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CreateCustomerIDHttpPost" binding="tns:CreateCustomerIDHttpPost">
+      <http:address location="http://localhost/WebCardManagement/CreateCustomerID.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

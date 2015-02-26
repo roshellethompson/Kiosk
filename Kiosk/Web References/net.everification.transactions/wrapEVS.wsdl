@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://transactions.everification.net/EIPSServices/WrapEVS" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" targetNamespace="http://transactions.everification.net/EIPSServices/WrapEVS" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://transactions.everification.net/EIPSServices/WrapEVS">
+      <s:element name="GetEVS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strSocialSecurity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOwnNameFirst" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOwnNameLast" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTelephone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strDrivingLicenseState" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strDrivingLicense" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCustRefnumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCustPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCurAddrCity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCurAddrState" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCurAddrZip" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEVSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEVSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEVSFullIC">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strSocialSecurity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOwnNameFirst" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOwnNameMiddle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOwnNameLast" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTelephone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strDrivingLicenseState" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strDrivingLicense" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCustRefnumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCustPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strHouseNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPreDirectional" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strStreetname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strStreetType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPostDirectional" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strApartmentNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCurAddrCity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCurAddrState" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCurAddrZip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strIPAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strUserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strBranch" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLID_Formatted" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLID_Raw" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLID_Jurisdiction" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLExpirationDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLExpired" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLDateofBirth" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLAge" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLIssueDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLName_First" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLName_Last" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLName_Middle" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLName_MiddleInitial" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLName_FirstMiddleLast" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLName_FirstLast" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLName_LastFirst" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLName_LastSuffix" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLName_Suffix" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLAddress2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLCity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLPostalCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLPostalCodeMain" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLPostalCodePlus4Codes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLJurisdiction" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLGender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLGenderFirstLetter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLHairColor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLEyeColor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLWeight_Lbs" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLWeight_Kg" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLHeight_FtIn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLHeight_Feet" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLHeight_Inches" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLHeight_Cm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLDriverClassCodes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLRestrictionCodes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLEndorsementCodes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLSocialSecurityNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLOrganDonor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLOrganDonorAbbrev" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLMediaType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLProcessResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLSerialNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLUniqueID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLIsTestCard" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLDateofBirthMonth" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLDateofBirthDay" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLDateofBirthYear" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLDateofExpirationDay" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLDateofExpirationMonth" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLDateofExpirationYear" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLDateofIssueMonth" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLDateofIssueDay" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strICDLDateofIssueYear" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="blICDLSaveOnly" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEVSFullICResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEVSFullICResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEVSWithLang">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strSocialSecurity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOwnNameFirst" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOwnNameLast" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTelephone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strDrivingLicenseState" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strDrivingLicense" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCustRefnumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCustPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCurAddrCity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCurAddrState" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCurAddrZip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strLanguage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEVSWithLangResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEVSWithLangResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEVSWithIPEMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strSocialSecurity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOwnNameFirst" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strOwnNameLast" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strTelephone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strDrivingLicenseState" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strDrivingLicense" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCustRefnumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCustPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCurAddrCity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCurAddrState" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strCurAddrZip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strIPAddress" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEVSWithIPEMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEVSWithIPEMailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAuthAnswers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessioncookie" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustRefNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustPass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Answer1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Answer2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Answer3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Answer4" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Answer5" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Answer6" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Answer7" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Answer8" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Answer9" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Answer10" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Answer11" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Answer12" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Answer13" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Answer14" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Answer15" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Answer16" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Answer17" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Answer18" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Answer19" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Answer20" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAuthAnswersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAuthAnswersResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInternational">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="first" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="last" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="suffix" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="house_no" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="street" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="county" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="county_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="zip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="country" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ssn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="id_type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dob" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="gender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClientTrans" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInternationalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInternationalResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetEVSSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEVS" />
+  </wsdl:message>
+  <wsdl:message name="GetEVSSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEVSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEVSFullICSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEVSFullIC" />
+  </wsdl:message>
+  <wsdl:message name="GetEVSFullICSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEVSFullICResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEVSWithLangSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEVSWithLang" />
+  </wsdl:message>
+  <wsdl:message name="GetEVSWithLangSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEVSWithLangResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEVSWithIPEMailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEVSWithIPEMail" />
+  </wsdl:message>
+  <wsdl:message name="GetEVSWithIPEMailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEVSWithIPEMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAuthAnswersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAuthAnswers" />
+  </wsdl:message>
+  <wsdl:message name="GetAuthAnswersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAuthAnswersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInternationalSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInternational" />
+  </wsdl:message>
+  <wsdl:message name="GetInternationalSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInternationalResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WrapEVSSoap">
+    <wsdl:operation name="GetEVS">
+      <wsdl:input message="tns:GetEVSSoapIn" />
+      <wsdl:output message="tns:GetEVSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEVSFullIC">
+      <wsdl:input message="tns:GetEVSFullICSoapIn" />
+      <wsdl:output message="tns:GetEVSFullICSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEVSWithLang">
+      <wsdl:input message="tns:GetEVSWithLangSoapIn" />
+      <wsdl:output message="tns:GetEVSWithLangSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEVSWithIPEMail">
+      <wsdl:input message="tns:GetEVSWithIPEMailSoapIn" />
+      <wsdl:output message="tns:GetEVSWithIPEMailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthAnswers">
+      <wsdl:input message="tns:GetAuthAnswersSoapIn" />
+      <wsdl:output message="tns:GetAuthAnswersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInternational">
+      <wsdl:input message="tns:GetInternationalSoapIn" />
+      <wsdl:output message="tns:GetInternationalSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WrapEVSSoap" type="tns:WrapEVSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetEVS">
+      <soap:operation soapAction="http://transactions.everification.net/EIPSServices/WrapEVS/GetEVS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEVSFullIC">
+      <soap:operation soapAction="http://transactions.everification.net/EIPSServices/WrapEVS/GetEVSFullIC" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEVSWithLang">
+      <soap:operation soapAction="http://transactions.everification.net/EIPSServices/WrapEVS/GetEVSWithLang" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEVSWithIPEMail">
+      <soap:operation soapAction="http://transactions.everification.net/EIPSServices/WrapEVS/GetEVSWithIPEMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthAnswers">
+      <soap:operation soapAction="http://transactions.everification.net/EIPSServices/WrapEVS/GetAuthAnswers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInternational">
+      <soap:operation soapAction="http://transactions.everification.net/EIPSServices/WrapEVS/GetInternational" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WrapEVS">
+    <wsdl:port name="WrapEVSSoap" binding="tns:WrapEVSSoap">
+      <soap:address location="https://transactions.everification.net/eipsservices/wrapEVS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,25 @@
+buicap32.dll - Vers 1100.0.0.1 : 9/30/2011
+buicap32.lib - 9/30/2011
+BUICAPI.H - 9/15/2011
+BUICSCAN.INI - 10/04/2011
+BX7200Firmware_05.v2011.09.12.0.bin - size:  396066
+CUSTDATA.INI - 12/17/2007
+CX30Firmware_v1.1.2.11.bin - 3/8/2010 size:  192190
+CX30KfFirmware_v1.1.2.11.bin - 3/8/2010: size:  194038
+DCCIMAGE.DLL - vers 140.0.0.1:  9/30/2011: size:  258048
+INSTALL.LOG 
+oldAswciifont.bin
+PC2424.FNT
+PKGLIST.TXT
+ScanBatch.ICO
+Ts2Dll.dll - vers 4.8.3.5:  9/12/2011 size:  1,210,880
+Ts4_IJ12_AsciiFont.fnt
+ts4dll.dll - vers 4.2.0.0: 7/8/2005 size:  385,024
+Ts200_IJAsciiFont.bin
+TS220Firmware.bin - 2/6/2006:  size:  95,145
+TS230Firmware_v1.0.3.2.bin - 1/19/2011:  size:  315,864
+Ts240Firmware_03.v2.0.2.1.bin - 9/6/2011: size:  423,310
+Ts240Firmware_v1.2.0.8.bin - 9/14/2011: size:  325,808
+TS440Firmware_04.v1.0.3.0_2011-09-12.bin - 9/12/2011:  size:  414,084
+TS440Firmware_v1.0.3.0.bin - 10/15/2008:  size:  319.560
+UNWISE.EXE

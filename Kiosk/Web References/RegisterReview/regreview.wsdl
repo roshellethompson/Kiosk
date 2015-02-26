@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://localhost.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost.org/">
+      <s:element name="RegisterReviewedServiceXML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="scanID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterReviewedServiceXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegisterReviewedServiceXMLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterReviewedService">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="scanID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterReviewedServiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegisterReviewedServiceResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RegisterReviewedServiceXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:RegisterReviewedServiceXML" />
+  </wsdl:message>
+  <wsdl:message name="RegisterReviewedServiceXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterReviewedServiceXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterReviewedServiceSoapIn">
+    <wsdl:part name="parameters" element="tns:RegisterReviewedService" />
+  </wsdl:message>
+  <wsdl:message name="RegisterReviewedServiceSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterReviewedServiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterReviewedServiceXMLHttpGetIn">
+    <wsdl:part name="scanID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RegisterReviewedServiceXMLHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RegisterReviewedServiceHttpGetIn">
+    <wsdl:part name="scanID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RegisterReviewedServiceHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="RegisterReviewedServiceXMLHttpPostIn">
+    <wsdl:part name="scanID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RegisterReviewedServiceXMLHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RegisterReviewedServiceHttpPostIn">
+    <wsdl:part name="scanID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RegisterReviewedServiceHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:portType name="RegReviewSoap">
+    <wsdl:operation name="RegisterReviewedServiceXML">
+      <wsdl:input message="tns:RegisterReviewedServiceXMLSoapIn" />
+      <wsdl:output message="tns:RegisterReviewedServiceXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterReviewedService">
+      <wsdl:input message="tns:RegisterReviewedServiceSoapIn" />
+      <wsdl:output message="tns:RegisterReviewedServiceSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="RegReviewHttpGet">
+    <wsdl:operation name="RegisterReviewedServiceXML">
+      <wsdl:input message="tns:RegisterReviewedServiceXMLHttpGetIn" />
+      <wsdl:output message="tns:RegisterReviewedServiceXMLHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterReviewedService">
+      <wsdl:input message="tns:RegisterReviewedServiceHttpGetIn" />
+      <wsdl:output message="tns:RegisterReviewedServiceHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="RegReviewHttpPost">
+    <wsdl:operation name="RegisterReviewedServiceXML">
+      <wsdl:input message="tns:RegisterReviewedServiceXMLHttpPostIn" />
+      <wsdl:output message="tns:RegisterReviewedServiceXMLHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterReviewedService">
+      <wsdl:input message="tns:RegisterReviewedServiceHttpPostIn" />
+      <wsdl:output message="tns:RegisterReviewedServiceHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RegReviewSoap" type="tns:RegReviewSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegisterReviewedServiceXML">
+      <soap:operation soapAction="http://localhost.org/RegisterReviewedServiceXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterReviewedService">
+      <soap:operation soapAction="http://localhost.org/RegisterReviewedService" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RegReviewSoap12" type="tns:RegReviewSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegisterReviewedServiceXML">
+      <soap12:operation soapAction="http://localhost.org/RegisterReviewedServiceXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterReviewedService">
+      <soap12:operation soapAction="http://localhost.org/RegisterReviewedService" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RegReviewHttpGet" type="tns:RegReviewHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="RegisterReviewedServiceXML">
+      <http:operation location="/RegisterReviewedServiceXML" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterReviewedService">
+      <http:operation location="/RegisterReviewedService" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RegReviewHttpPost" type="tns:RegReviewHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="RegisterReviewedServiceXML">
+      <http:operation location="/RegisterReviewedServiceXML" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterReviewedService">
+      <http:operation location="/RegisterReviewedService" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RegReview">
+    <wsdl:port name="RegReviewSoap" binding="tns:RegReviewSoap">
+      <soap:address location="http://localhost/webcardmanagement/regreview.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RegReviewSoap12" binding="tns:RegReviewSoap12">
+      <soap12:address location="http://localhost/webcardmanagement/regreview.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RegReviewHttpGet" binding="tns:RegReviewHttpGet">
+      <http:address location="http://localhost/webcardmanagement/regreview.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RegReviewHttpPost" binding="tns:RegReviewHttpPost">
+      <http:address location="http://localhost/webcardmanagement/regreview.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

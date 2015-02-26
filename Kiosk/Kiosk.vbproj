@@ -1,0 +1,462 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BA1AC75A-3D5C-44E1-B870-19D4B1808418}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <StartupObject>
+    </StartupObject>
+    <RootNamespace>Kiosk</RootNamespace>
+    <AssemblyName>Kiosk</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <SccProjectName>\\Kiosk\Kiosk</SccProjectName>
+    <SccLocalPath>..</SccLocalPath>
+    <SccAuxPath />
+    <SccProvider>MSSCCI:TeamCoherence</SccProvider>
+    <PublishUrl>C:\Kiosk\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Kiosk.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Kiosk.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>BCEB2BD1E58E3CCA1DF02986C902A5C32EEDA1BC</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Kiosk_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CheckScanner, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\CheckScanner\CheckScanner\bin\Release\CheckScanner.dll</HintPath>
+    </Reference>
+    <Reference Include="clsDataModule, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\clsDataModule\clsDataModule\bin\Debug\clsDataModule.dll</HintPath>
+    </Reference>
+    <Reference Include="IBM.Data.Informix, Version=3.0.0.2, Culture=neutral, PublicKeyToken=7c307b91aa13d208, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\clsDataModule\clsDataModule\bin\Debug\IBM.Data.Informix.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="TPSUtilities, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\clsDataModule\clsDataModule\bin\Debug\TPSUtilities.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BgCheck.vb" />
+    <Compile Include="clsBillPay.vb" />
+    <Compile Include="clsAffiliate.vb" />
+    <Compile Include="clsCard.vb" />
+    <Compile Include="clsCheck.vb" />
+    <Compile Include="clsCustomer.vb" />
+    <Compile Include="clsCustomerPhotoIDs.vb" />
+    <Compile Include="clsError.vb" />
+    <Compile Include="clsFlags.vb" />
+    <Compile Include="clsInterfaceFlags.vb" />
+    <Compile Include="clsJournal.vb" />
+    <Compile Include="clsLabel.vb" />
+    <Compile Include="clsLanguage.vb" />
+    <Compile Include="clsListItem.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="clsLog.vb" />
+    <Compile Include="clsObjectMemoryDump.vb" />
+    <Compile Include="clsPinPad.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="clsPrinter.vb" />
+    <Compile Include="clsQueue.vb" />
+    <Compile Include="clsScreens.vb" />
+    <Compile Include="clsSettings.vb" />
+    <Compile Include="frmKioskOld.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Web References\CheckServices\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\CheckService\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\CheckVerify\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\CreateCustomerID\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\net.everification.transactions\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\OCRScan\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\RegisterReview\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HotFix_1100\buicap32.lib" />
+    <None Include="HotFix_1100\BUICAPI.H" />
+    <None Include="HotFix_1100\BUICSCAN.INI" />
+    <None Include="HotFix_1100\BX7200Firmware_05.v2011.09.12.0.bin" />
+    <None Include="HotFix_1100\CUSTDATA.INI" />
+    <None Include="HotFix_1100\CX30Firmware_v1.1.2.11.bin" />
+    <None Include="HotFix_1100\CX30KfFirmware_v1.1.2.11.bin" />
+    <None Include="HotFix_1100\INSTALL.LOG" />
+    <None Include="HotFix_1100\oldAsciifont.bin" />
+    <None Include="HotFix_1100\PC2424.FNT" />
+    <None Include="HotFix_1100\Ts200_IJAsciiFont.bin" />
+    <None Include="HotFix_1100\TS220Firmware.bin" />
+    <None Include="HotFix_1100\Ts230Firmware_v1.0.3.2.bin" />
+    <None Include="HotFix_1100\Ts240Firmware_03.V2.0.2.1.bin" />
+    <None Include="HotFix_1100\Ts240Firmware_v1.2.0.8.bin" />
+    <None Include="HotFix_1100\TS440Firmware_04.v1.0.3.0_2011-09-12.bin" />
+    <None Include="HotFix_1100\TS440Firmware_v1.0.3.0.bin" />
+    <None Include="HotFix_1100\Ts4_IJ12_AsciiFont.fnt" />
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\CheckServices\Checks.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CheckServices\CheckServices.wsdl" />
+    <None Include="Web References\CheckServices\CustomerPhotoIDs.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CheckServices\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\CheckServices\ReturnCodes.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CheckService\ICheckServiceservice.wsdl" />
+    <None Include="Web References\CheckService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\CheckService\TCheckAuthorization.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CheckService\TCustInfo.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CheckService\TLangResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CheckVerify\BusinessLogic.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\CheckVerify\checkvalidator.wsdl" />
+    <None Include="Web References\CheckVerify\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\CreateCustomerID\CreateCustomerID.wsdl" />
+    <None Include="Web References\CreateCustomerID\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\net.everification.transactions\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\net.everification.transactions\wrapEVS.wsdl" />
+    <None Include="Web References\OCRScan\OCRScan.wsdl" />
+    <None Include="Web References\OCRScan\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\RegisterReview\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\RegisterReview\regreview.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CheckInst.mp4" />
+    <Content Include="HotFix_1100\BUICAP32.DLL" />
+    <Content Include="HotFix_1100\dccimage.dll" />
+    <Content Include="HotFix_1100\PKGLIST.TXT" />
+    <Content Include="HotFix_1100\ScanBatch.ICO" />
+    <Content Include="HotFix_1100\Ts2Dll.dll" />
+    <Content Include="HotFix_1100\ts4dll.dll" />
+    <Content Include="HotFix_1100\UNWISE.EXE" />
+    <Content Include="images\bg_img.jpg" />
+    <Content Include="images\blank backdrop.jpg" />
+    <Content Include="images\blank.gif" />
+    <Content Include="images\blank.jpg" />
+    <Content Include="images\blank_backdrop.jpg" />
+    <Content Include="images\down.png" />
+    <Content Include="images\ErrorLogo.JPG" />
+    <Content Include="images\left_green.png" />
+    <Content Include="images\left_greenbtn.png" />
+    <Content Include="images\left_green_gold.png" />
+    <Content Include="images\left_grey.png" />
+    <Content Include="images\left_red.png" />
+    <Content Include="images\left_red_gold.png" />
+    <Content Include="images\right_green.png" />
+    <Content Include="images\right_green_gold.png" />
+    <Content Include="images\right_grey.png" />
+    <Content Include="images\right_red.png" />
+    <Content Include="images\right_red_gold.png" />
+    <Content Include="images\screen_down.jpg" />
+    <Content Include="images\screen_down_white.jpg" />
+    <Content Include="images\screen_down_white_backdrop.jpg" />
+    <Content Include="images\screen_up.jpg" />
+    <Content Include="images\screen_up_white.jpg" />
+    <Content Include="images\screen_up_white_backdrop.jpg" />
+    <Content Include="images\up.png" />
+    <None Include="Web References\CheckServices\CheckServices.disco" />
+    <None Include="Web References\OCRScan\OCRScan.disco" />
+    <None Include="Web References\net.everification.transactions\wrapEVS.disco" />
+    <None Include="Web References\CheckVerify\checkvalidator.disco" />
+    <None Include="Web References\CreateCustomerID\CreateCustomerID.disco" />
+    <None Include="Web References\RegisterReview\regreview.disco">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://fldevez/Checkservice/CheckService.dll/wsdl/ICheckService">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\CheckService\</RelPath>
+      <UpdateFromURL>http://fldevez/Checkservice/CheckService.dll/wsdl/ICheckService</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Kiosk_CheckService_ICheckServiceservice</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://fldevez/WebCardManagement/CheckServices.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\CheckServices\</RelPath>
+      <UpdateFromURL>http://fldevez/WebCardManagement/CheckServices.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Kiosk_CheckServices_CheckServices</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost/OCRScan/OCRScan.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\OCRScan\</RelPath>
+      <UpdateFromURL>http://localhost/OCRScan/OCRScan.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Kiosk_OCRScan_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost/WebCardManagement/CreateCustomerID.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\CreateCustomerID\</RelPath>
+      <UpdateFromURL>http://localhost/WebCardManagement/CreateCustomerID.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Kiosk_CreateCustomerID_CreateCustomerID</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://localhost/webcardmanagement/regreview.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\RegisterReview\</RelPath>
+      <UpdateFromURL>http://localhost/webcardmanagement/regreview.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Kiosk_RegisterReview_RegReview</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://myvalidator.com/validator_dev/checkvalidator.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\CheckVerify\</RelPath>
+      <UpdateFromURL>http://myvalidator.com/validator_dev/checkvalidator.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Kiosk_CheckVerify_CheckValidator</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://transactions.everification.net/eipsservices/wrapEVS.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\net.everification.transactions\</RelPath>
+      <UpdateFromURL>https://transactions.everification.net/eipsservices/wrapEVS.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Kiosk_net_everification_transactions_WrapEVS</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,36 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="Kiosk_CheckVerify_CheckValidator" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://myvalidator.com/validator_dev/checkvalidator.asmx</Value>
+    </Setting>
+    <Setting Name="Kiosk_net_everification_transactions_WrapEVS" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://transactions.everification.net/eipsservices/wrapEVS.asmx</Value>
+    </Setting>
+    <Setting Name="Kiosk_OCRScan_OCRService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/saveocrscan/ocrservice.asmx</Value>
+    </Setting>
+    <Setting Name="Kiosk_RegisterReview_RegReview" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/webcardmanagement/regreview.asmx</Value>
+    </Setting>
+    <Setting Name="Kiosk_CheckCashing_CheckCashing" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/checkcashing/checkcashing.asmx</Value>
+    </Setting>
+    <Setting Name="Kiosk_OCRScan_Service" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://localhost/OCRScan/OCRScan.asmx</Value>
+    </Setting>
+    <Setting Name="Kiosk_ICheckService_ICheckServiceservice" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost/Checkservice/CheckService.dll/soap/ICheckService</Value>
+    </Setting>
+    <Setting Name="Kiosk_CreateCustomerID_CreateCustomerID" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://fldevez/WebCardManagement/CreateCustomerID.asmx</Value>
+    </Setting>
+    <Setting Name="Kiosk_CheckService_ICheckServiceservice" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://fldevez/Checkservice/CheckService.dll/soap/ICheckService</Value>
+    </Setting>
+    <Setting Name="Kiosk_CheckServices_CheckServices" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://fldevez/WebCardManagement/CheckServices.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

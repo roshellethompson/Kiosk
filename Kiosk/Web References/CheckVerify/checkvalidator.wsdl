@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://myvalidator.com/validator_dev/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://myvalidator.com/validator_dev/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://myvalidator.com/validator_dev/">
+      <s:element name="CheckVerification">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RoutingNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PayeeID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CheckAmount" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CheckDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="CompanyName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PayeeAuthCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CompanyPhone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CompanyID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TransactionID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="StoreID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BirthDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PayeeZip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="objBusinessLogic" type="tns:BusinessLogic" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BusinessLogic">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BusinessCheck" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsPayeeZipInRange" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="RegisteredCompany" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExpiredCompany" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExceedMaxAmount" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExceedMaxAge" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CheckNumUnder300" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DuplicateCheck" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompanyOnHold" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PayeeOnHold" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnderSmallAmount" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompanyFirstCheck" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExceedFirstCheckMaxAmt" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="NewPayee" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="NewPayeeMultiNew" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="FirstCheckCleared" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="NewCompany" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExceedNewCompanyCount" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReachedVelocityLimit" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CheckNumInRange" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompanySecondCheck" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="GuranteeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CheckVerificationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckVerificationResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="objBusinessLogic" type="tns:BusinessLogic" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="lookupCompany">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RoutingNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="lookupCompanyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="lookupCompanyResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePayee">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PayeeID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Payee_Status" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Velocity_Variance_Threshold" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdatePayeeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdatePayeeResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCompany">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Company_ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RoutingNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Company_Status" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Threshold" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Velocity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Approve_Date" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Company_Phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Return_Check" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCompanyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateCompanyResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCheck">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Transaction_ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Payee_ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Check_Status" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCheckResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateCheckResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MatrixBusinessRules">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RoutingNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PayeeID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CheckAmount" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CheckDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="CompanyID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StoreID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="payeeZip" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MatrixBusinessRulesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MatrixBusinessRulesResult" type="tns:BusinessLogic" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CheckVerificationSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckVerification" />
+  </wsdl:message>
+  <wsdl:message name="CheckVerificationSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckVerificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="lookupCompanySoapIn">
+    <wsdl:part name="parameters" element="tns:lookupCompany" />
+  </wsdl:message>
+  <wsdl:message name="lookupCompanySoapOut">
+    <wsdl:part name="parameters" element="tns:lookupCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePayeeSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdatePayee" />
+  </wsdl:message>
+  <wsdl:message name="UpdatePayeeSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdatePayeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCompanySoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCompany" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCompanySoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCheckSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCheck" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCheckSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="MatrixBusinessRulesSoapIn">
+    <wsdl:part name="parameters" element="tns:MatrixBusinessRules" />
+  </wsdl:message>
+  <wsdl:message name="MatrixBusinessRulesSoapOut">
+    <wsdl:part name="parameters" element="tns:MatrixBusinessRulesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CheckValidatorSoap">
+    <wsdl:operation name="CheckVerification">
+      <wsdl:input message="tns:CheckVerificationSoapIn" />
+      <wsdl:output message="tns:CheckVerificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="lookupCompany">
+      <wsdl:input message="tns:lookupCompanySoapIn" />
+      <wsdl:output message="tns:lookupCompanySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePayee">
+      <wsdl:input message="tns:UpdatePayeeSoapIn" />
+      <wsdl:output message="tns:UpdatePayeeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCompany">
+      <wsdl:input message="tns:UpdateCompanySoapIn" />
+      <wsdl:output message="tns:UpdateCompanySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCheck">
+      <wsdl:input message="tns:UpdateCheckSoapIn" />
+      <wsdl:output message="tns:UpdateCheckSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MatrixBusinessRules">
+      <wsdl:input message="tns:MatrixBusinessRulesSoapIn" />
+      <wsdl:output message="tns:MatrixBusinessRulesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CheckValidatorSoap" type="tns:CheckValidatorSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckVerification">
+      <soap:operation soapAction="http://myvalidator.com/validator_dev/CheckVerification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lookupCompany">
+      <soap:operation soapAction="http://myvalidator.com/validator_dev/lookupCompany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePayee">
+      <soap:operation soapAction="http://myvalidator.com/validator_dev/UpdatePayee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCompany">
+      <soap:operation soapAction="http://myvalidator.com/validator_dev/UpdateCompany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCheck">
+      <soap:operation soapAction="http://myvalidator.com/validator_dev/UpdateCheck" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MatrixBusinessRules">
+      <soap:operation soapAction="http://myvalidator.com/validator_dev/MatrixBusinessRules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CheckValidatorSoap12" type="tns:CheckValidatorSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckVerification">
+      <soap12:operation soapAction="http://myvalidator.com/validator_dev/CheckVerification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lookupCompany">
+      <soap12:operation soapAction="http://myvalidator.com/validator_dev/lookupCompany" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePayee">
+      <soap12:operation soapAction="http://myvalidator.com/validator_dev/UpdatePayee" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCompany">
+      <soap12:operation soapAction="http://myvalidator.com/validator_dev/UpdateCompany" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCheck">
+      <soap12:operation soapAction="http://myvalidator.com/validator_dev/UpdateCheck" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MatrixBusinessRules">
+      <soap12:operation soapAction="http://myvalidator.com/validator_dev/MatrixBusinessRules" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CheckValidator">
+    <wsdl:port name="CheckValidatorSoap" binding="tns:CheckValidatorSoap">
+      <soap:address location="http://myvalidator.com/validator_dev/checkvalidator.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CheckValidatorSoap12" binding="tns:CheckValidatorSoap12">
+      <soap12:address location="http://myvalidator.com/validator_dev/checkvalidator.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
