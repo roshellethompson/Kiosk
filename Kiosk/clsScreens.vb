@@ -103,6 +103,7 @@ Public Class clsScreens
         OutputScreen.PAN = PAN
         oPin.oErr.ErrCode = 0
 
+        Info = {}
         Info1 = ""
         Info2 = ""
         Info3 = ""
